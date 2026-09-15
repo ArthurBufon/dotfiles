@@ -1,0 +1,7 @@
+[user]
+	name = ArthurBufon
+	email = arthurbufon2052@gmail.com
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
