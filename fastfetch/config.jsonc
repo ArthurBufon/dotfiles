@@ -1,0 +1,136 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+
+  "logo": {
+    "type": "file-raw",
+    "source": "~/.config/fastfetch/anime/anime-girl-1.txt",
+    "padding": {
+      "top": 1,
+      "left": 0,
+      "right": 4
+    }
+  },
+
+  "display": {
+    "separator": "    "
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "format": "{##CBA6F7}{user-name}{#}@{##89B4FA}{host-name}{#}"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#8}╭─────────────── System ───────────────╮{#}"
+    },
+
+    {
+      "type": "os",
+      "key": "   OS",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "key": "   Kernel",
+      "keyColor": "blue"
+    },
+    {
+      "type": "uptime",
+      "key": "  󰅐 Uptime",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "  󰏖 Packages",
+      "keyColor": "blue"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#8}├────────────── Desktop ───────────────┤{#}"
+    },
+
+    {
+      "type": "de",
+      "key": "   DE",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "wm",
+      "key": "  󰖲 WM",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "theme",
+      "key": "  󰉼 Theme",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "icons",
+      "key": "  󰀻 Icons",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "font",
+      "key": "   Font",
+      "keyColor": "magenta"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#8}├────────────── Terminal ──────────────┤{#}"
+    },
+
+    {
+      "type": "shell",
+      "key": "   Shell",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "terminal",
+      "key": "   Terminal",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "terminalfont",
+      "key": "   Term Font",
+      "keyColor": "cyan"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#8}├────────────── Hardware ──────────────┤{#}"
+    },
+
+    {
+      "type": "cpu",
+      "key": "   CPU",
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "  󰢮 GPU",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "   Memory",
+      "keyColor": "green"
+    },
+    {
+      "type": "disk",
+      "key": "  󰋊 Disk",
+      "keyColor": "green"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#8}╰──────────────────────────────────────╯{#}"
+    },
+
+    "break",
+    "colors"
+  ]
+}
