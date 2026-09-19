@@ -9,7 +9,7 @@ Rice escuro, limpo e discreto para Debian 13 com XFCE em X11. A base é a paleta
 - Fonte da interface: Noto Sans 10
 - Fonte do terminal: JetBrainsMono Nerd Font 10
 - Terminal: Kitty com paleta Nord e transparência de 92%
-- Shell: Zsh com badges pill Starship e listagens Nord
+- Shell: Zsh com badges pill Starship e eza com ícones
 - Painel: único, superior, 28 px, `#2E3440` com 92% de opacidade
 - Painel: Whisker Menu, lista de janelas, área de notificação, energia e relógio `%H:%M`
 - Área de trabalho: sem ícones
@@ -26,6 +26,7 @@ fonts-noto-core
 kitty
 picom
 starship
+eza
 git
 ```
 

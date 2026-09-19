@@ -14,6 +14,7 @@ sudo apt install -y \
   kitty \
   picom \
   starship \
+  eza \
   git
 ```
 
@@ -146,7 +147,20 @@ if command -v starship >/dev/null; then
 fi
 ```
 
-O prompt mostra badges pill para diretório, Git e alterações Git, seguidos de `❯`. O `dircolors` deixa diretórios azuis, links ciano, executáveis verdes e erros vermelhos. Abra um novo Zsh com `exec zsh`.
+O prompt mostra badges pill para diretório, Git e alterações Git, seguidos de `❯`. O `dircolors` deixa diretórios azuis, links ciano, executáveis verdes e erros vermelhos.
+
+Para listagens com ícones e diretórios primeiro, adicione ao `~/.zshrc`:
+
+```zsh
+if command -v eza >/dev/null; then
+  alias ls='eza --icons --group-directories-first --oneline'
+  alias ll='eza --icons --group-directories-first --long --header --git'
+  alias la='eza --icons --group-directories-first --all --long --header --git'
+  alias lt='eza --icons --group-directories-first --tree --level=2'
+fi
+```
+
+Use `ls` para uma lista vertical com ícones, `ll` para detalhes, `la` para incluir ocultos e `lt` para uma árvore de até dois níveis. Abra um novo Zsh com `exec zsh`.
 
 ## 7. Configure cantos arredondados com Picom
 

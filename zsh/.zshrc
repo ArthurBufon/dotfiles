@@ -45,6 +45,13 @@ if command -v starship >/dev/null; then
 fi
 
 # ALIASES
+if command -v eza >/dev/null; then
+  alias ls='eza --icons --group-directories-first --oneline'
+  alias ll='eza --icons --group-directories-first --long --header --git'
+  alias la='eza --icons --group-directories-first --all --long --header --git'
+  alias lt='eza --icons --group-directories-first --tree --level=2'
+fi
+
 alias sail='./vendor/bin/sail'
 alias c.='cursor . --classic'
 alias 4u-import-db="$HOME/projects/4ucertificacoes/scripts/importar-db-producao.sh"
