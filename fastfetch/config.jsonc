@@ -3,7 +3,7 @@
 
   "logo": {
     "type": "file-raw",
-    "source": "~/.config/fastfetch/anime/anime-girl-1.txt",
+    "source": "~/.config/fastfetch/anime/rei-ayanami-1.txt",
     "padding": {
       "top": 1,
       "left": 0,
@@ -18,7 +18,7 @@
   "modules": [
     {
       "type": "title",
-      "format": "{##CBA6F7}{user-name}{#}@{##89B4FA}{host-name}{#}"
+      "format": "{#6}{user-name}{#}@{#4}{host-name}{#}"
     },
 
     {
