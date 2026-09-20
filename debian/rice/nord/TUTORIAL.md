@@ -14,6 +14,7 @@ sudo apt install -y \
   kitty \
   picom \
   starship \
+  rofi \
   eza \
   git
 ```
@@ -25,6 +26,7 @@ mkdir -p ~/backup-xfce-before-nord
 cp -a ~/.config/xfce4 ~/backup-xfce-before-nord/
 cp -a ~/.themes ~/backup-xfce-before-nord/ 2>/dev/null || true
 cp -a ~/.local/share/icons ~/backup-xfce-before-nord/icons 2>/dev/null || true
+cp -a ~/.config/rofi ~/backup-xfce-before-nord/ 2>/dev/null || true
 ```
 
 ## 3. Instale tema e ícones
@@ -201,6 +203,34 @@ OnlyShowIn=XFCE;
 X-GNOME-Autostart-enabled=true
 ```
 
-## 8. Finalize
+## 8. Configure o Rofi
+
+A configuração versionada usa a paleta Nord, JetBrainsMono Nerd Font, ícones, busca fuzzy e uma lista de sete resultados. Instale-a a partir do clone deste repositório:
+
+```bash
+mkdir -p ~/.config/rofi
+ln -sfn ~/dotfiles/debian/rice/nord/rofi/config.rasi \
+  ~/.config/rofi/config.rasi
+```
+
+Na sessão gráfica XFCE, configure `Super+Space` para abrir o launcher de aplicativos:
+
+```bash
+xfconf-query -c xfce4-keyboard-shortcuts \
+  -p '/commands/custom/<Super>space' \
+  -n -t string -s 'rofi -show drun'
+```
+
+Teste a configuração e confira o atalho registrado:
+
+```bash
+rofi -show drun
+xfconf-query -c xfce4-keyboard-shortcuts \
+  -p '/commands/custom/<Super>space'
+```
+
+O primeiro comando abre o launcher; `Esc` o fecha. O segundo deve exibir `rofi -show drun`.
+
+## 9. Finalize
 
 Escolha um wallpaper escuro com tons Nord e saia/entre na sessão. Verifique o compositor com `pgrep -a picom`; deve haver apenas um processo Picom.

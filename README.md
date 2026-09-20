@@ -25,6 +25,7 @@ dotfiles/
 ### What lives here
 
 - shared, deduplicated shell history
+- [Nord rice for Debian/XFCE](debian/rice/nord/README.md), including a Rofi launcher
 - fuzzy and case-insensitive completion
 - [Starship](https://starship.rs/) prompt initialization
 - Zsh autosuggestions and syntax highlighting
