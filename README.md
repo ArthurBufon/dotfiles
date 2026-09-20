@@ -12,7 +12,7 @@
 
 </div>
 
-![Terminal with the dotfiles configuration](screenshots/1.png)
+![Desktop screenshot with the dotfiles configuration](screenshots/1.png)
 
 ---
 
