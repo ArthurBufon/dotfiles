@@ -50,6 +50,7 @@ exec zsh
 - Zsh
 - GNU `dircolors`
 - [Starship](https://starship.rs/)
+- [zoxide](https://github.com/ajeetdsouza/zoxide) (`sudo apt install zoxide` no Debian)
 - [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)
 - [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting)
 - NVM, if Node version management is needed

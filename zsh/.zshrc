@@ -56,6 +56,9 @@ alias sail='./vendor/bin/sail'
 alias c.='cursor . --classic'
 alias 4u-import-db="$HOME/projects/4ucertificacoes/scripts/importar-db-producao.sh"
 alias grimoire-sync="$HOME/projects/dev-grimoire/agents/scripts/sync.sh"
+alias remoto-4u='ssh arthur@72.60.138.108 -t "cd /var/www/html/4ucertificacoes && exec zsh -l"'
+alias remoto-akame='ssh arthur@72.60.138.108 -t "cd /var/www/html/akame-software && exec zsh -l"'
+alias remoto-studiozen='ssh arthur@72.60.138.108 -t "cd /var/www/html/studio-zen && exec zsh -l"'
 
 # PLUGINS
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -69,3 +72,7 @@ export PATH="$HOME/bin:$PATH"
 # >>> Codex installer >>>
 export PATH="/home/arthur/.local/bin:$PATH"
 # <<< Codex installer <<<
+
+if command -v zoxide >/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
