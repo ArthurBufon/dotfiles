@@ -31,6 +31,18 @@ dotfiles/
 - Zsh autosuggestions and syntax highlighting
 - NVM bootstrap and a handful of workflow aliases
 
+### XFCE shortcuts
+
+The [XFCE shortcut backup](xfce/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml) includes `Super+B` to open Chrome and `Super+C` to send `Ctrl+W` to the focused application. The latter uses the [close-tab script](xfce/.local/bin/fechar-aba) on X11.
+
+To restore these two shortcuts from the repository root in an XFCE session:
+
+```sh
+install -Dm755 xfce/.local/bin/fechar-aba ~/.local/bin/fechar-aba
+xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>b' -n -t string -s google-chrome
+xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>c' -n -t string -s "$HOME/.local/bin/fechar-aba"
+```
+
 ### Put it to work
 
 ```sh

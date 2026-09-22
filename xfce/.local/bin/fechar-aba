@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""Envia Ctrl+W para a janela em foco no X11."""
+
+from ctypes import CDLL, c_int, c_uint, c_ulong, c_void_p
+
+x11 = CDLL("libX11.so.6")
+xtst = CDLL("libXtst.so.6")
+x11.XOpenDisplay.restype = c_void_p
+x11.XKeysymToKeycode.argtypes = (c_void_p, c_ulong)
+x11.XFlush.argtypes = (c_void_p,)
+x11.XCloseDisplay.argtypes = (c_void_p,)
+xtst.XTestFakeKeyEvent.argtypes = (c_void_p, c_uint, c_int, c_ulong)
+
+display = x11.XOpenDisplay(None)
+if not display:
+    raise SystemExit("Não foi possível acessar o servidor X11")
+
+for keysym in (0xFFEB, 0xFFEC):  # Super esquerdo e direito
+    xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), 0, 0)
+
+for keysym, pressed in ((0xFFE3, 1), (ord("w"), 1), (ord("w"), 0), (0xFFE3, 0)):
+    xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), pressed, 0)
+
+x11.XFlush(display)
+x11.XCloseDisplay(display)
