@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
-"""Envia Ctrl+W para a janela em foco no X11."""
+"""Fecha a aba do Kitty ou envia Ctrl+W para a janela em foco no X11."""
 
-from ctypes import CDLL, c_int, c_uint, c_ulong, c_void_p
+from ctypes import CDLL, Structure, byref, c_int, c_uint, c_ulong, c_void_p, string_at
+
+
+class ClassHint(Structure):
+    _fields_ = (("name", c_void_p), ("klass", c_void_p))
 
 x11 = CDLL("libX11.so.6")
 xtst = CDLL("libXtst.so.6")
 x11.XOpenDisplay.restype = c_void_p
 x11.XKeysymToKeycode.argtypes = (c_void_p, c_ulong)
+x11.XGetInputFocus.argtypes = (c_void_p, c_void_p, c_void_p)
+x11.XGetClassHint.argtypes = (c_void_p, c_ulong, c_void_p)
+x11.XFree.argtypes = (c_void_p,)
 x11.XFlush.argtypes = (c_void_p,)
 x11.XCloseDisplay.argtypes = (c_void_p,)
 xtst.XTestFakeKeyEvent.argtypes = (c_void_p, c_uint, c_int, c_ulong)
@@ -15,11 +22,27 @@ display = x11.XOpenDisplay(None)
 if not display:
     raise SystemExit("Não foi possível acessar o servidor X11")
 
+window = c_ulong()
+revert = c_int()
+x11.XGetInputFocus(display, byref(window), byref(revert))
+hint = ClassHint()
+is_kitty = bool(x11.XGetClassHint(display, window.value, byref(hint))) and string_at(hint.klass).lower() == b"kitty"
+if hint.name:
+    x11.XFree(hint.name)
+if hint.klass:
+    x11.XFree(hint.klass)
+
 for keysym in (0xFFEB, 0xFFEC):  # Super esquerdo e direito
     xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), 0, 0)
 
-for keysym, pressed in ((0xFFE3, 1), (ord("w"), 1), (ord("w"), 0), (0xFFE3, 0)):
-    xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), pressed, 0)
+modifiers = (0xFFE3, 0xFFE1) if is_kitty else (0xFFE3,)
+key = ord("q") if is_kitty else ord("w")
+for keysym in modifiers:
+    xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), 1, 0)
+xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, key), 1, 0)
+xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, key), 0, 0)
+for keysym in reversed(modifiers):
+    xtst.XTestFakeKeyEvent(display, x11.XKeysymToKeycode(display, keysym), 0, 0)
 
 x11.XFlush(display)
 x11.XCloseDisplay(display)
