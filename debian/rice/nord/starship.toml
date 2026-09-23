@@ -25,6 +25,7 @@ style = "bold aurora_blue"
 format = "[$symbol]($style)"
 
 [os.symbols]
+Windows = ""
 Debian = "󰣚"
 Ubuntu = ""
 Linux = "󰌽"
