@@ -1,11 +1,28 @@
-format = "[](frost)$os$username$directory$git_branch$git_status$character[](frost) "
+format = """
+$os\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$line_break\
+$character"""
 add_newline = true
 palette = "nord"
 
 [os]
 disabled = false
-style = "bold bg:frost fg:polar_night"
-format = "[ $symbol ]($style)"
+style = "bold aurora_blue"
+format = "[$symbol]($style)"
 
 [os.symbols]
 Debian = "󰣚"
@@ -14,31 +31,86 @@ Linux = "󰌽"
 
 [username]
 show_always = true
-style_user = "bg:frost fg:polar_night"
-style_root = "bg:frost fg:aurora_red"
-format = "[$user]($style)"
+style_user = "bold frost_blue"
+style_root = "bold deep_blue"
+format = "[ $user]($style)"
 
 [directory]
-style = "bg:frost fg:polar_night"
-format = "[ $path ]($style)"
+style = "bold bright_blue"
+format = "[   󰉋 $path]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
-symbol = " "
-style = "bg:frost fg:polar_night"
-format = "[ $symbol$branch ]($style)"
+symbol = " "
+style = "deep_blue"
+format = "[   $symbol$branch]($style)"
 
 [git_status]
-style = "bg:frost fg:aurora_red"
-format = "[$all_status$ahead_behind ]($style)"
+style = "aurora_blue"
+format = "([ $all_status$ahead_behind]($style))"
+
+[c]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[rust]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[golang]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[nodejs]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[php]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[java]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[kotlin]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[haskell]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[python]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[docker_context]
+symbol = ""
+style = "deep_blue"
+format = "[   $symbol]($style)"
+
+[line_break]
+disabled = false
 
 [character]
 format = "$symbol"
-success_symbol = "[❯ ](bold bg:frost fg:polar_night)"
-error_symbol = "[❯ ](bold bg:frost fg:aurora_red)"
+success_symbol = "[❯ ](bold bright_blue)"
+error_symbol = "[❯ ](bold deep_blue)"
 
 [palettes.nord]
-frost = "#88C0D0"
 polar_night = "#2E3440"
-aurora_red = "#BF616A"
+aurora_blue = "#81A1C1"
+deep_blue = "#5E81AC"
+frost_blue = "#8FBCBB"
+bright_blue = "#88C0D0"
