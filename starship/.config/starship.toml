@@ -1,29 +1,44 @@
-format = "$directory$git_branch$git_status$character"
-add_newline = false
+format = "[](frost)$os$username$directory$git_branch$git_status$character[](frost) "
+add_newline = true
 palette = "nord"
+
+[os]
+disabled = false
+style = "bold bg:frost fg:polar_night"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Debian = "󰣚"
+Ubuntu = "󰕈"
+Linux = "󰌽"
+
+[username]
+show_always = true
+style_user = "bg:frost fg:polar_night"
+style_root = "bg:frost fg:aurora_red"
+format = "[$user]($style)"
 
 [directory]
 style = "bg:frost fg:polar_night"
-format = "[](frost)[ $path ]($style)[](frost) "
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
 symbol = " "
-style = "bg:aurora_blue fg:polar_night"
-format = "[](aurora_blue)[ $symbol$branch ]($style)[](aurora_blue) "
+style = "bg:frost fg:polar_night"
+format = "[ $symbol$branch ]($style)"
 
 [git_status]
-style = "bg:aurora_yellow fg:polar_night"
-format = "[](aurora_yellow)[ $all_status$ahead_behind ]($style)[](aurora_yellow) "
+style = "bg:frost fg:aurora_red"
+format = "[$all_status$ahead_behind ]($style)"
 
 [character]
-success_symbol = "[❯](bold frost) "
-error_symbol = "[❯](bold aurora_red) "
+format = "$symbol"
+success_symbol = "[❯ ](bold bg:frost fg:polar_night)"
+error_symbol = "[❯ ](bold bg:frost fg:aurora_red)"
 
 [palettes.nord]
 frost = "#88C0D0"
 polar_night = "#2E3440"
-aurora_blue = "#81A1C1"
-aurora_yellow = "#EBCB8B"
 aurora_red = "#BF616A"
