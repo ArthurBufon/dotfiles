@@ -18,8 +18,18 @@
 
 ```text
 dotfiles/
-└── zsh/
-    └── .zshrc    shell options, completion, aliases & plugins
+├── debian/       Debian and XFCE setup guides
+├── fastfetch/    system summary config and anime artwork
+├── fonts/        JetBrains Mono font files
+├── git/          global Git config
+├── gnome/        GNOME extension settings
+├── mpv/          media player config and shortcuts
+├── ptyxis/       terminal profiles
+├── redshift/     screen temperature config and autostart
+├── screenshots/  desktop previews
+├── starship/     standalone prompt config
+├── xfce/         keyboard shortcuts and helper scripts
+└── zsh/          shell config and Nord dircolors
 ```
 
 ### What lives here
