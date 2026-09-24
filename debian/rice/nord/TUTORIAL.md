@@ -119,21 +119,10 @@ Este rice possui uma configuração Starship própria em `starship.toml`. A part
 ```bash
 mkdir -p ~/.config/dircolors
 cp starship.toml ~/.config/starship.toml
+ln -sfn ~/dotfiles/zsh/.config/dircolors/nord ~/.config/dircolors/nord
 ```
 
-Crie `~/.config/dircolors/nord` com estas cores:
-
-```conf
-TERM xterm-256color
-TERM xterm-kitty
-NORMAL 00
-FILE 00
-DIR 01;38;5;110
-LINK 38;5;116
-EXEC 01;38;5;150
-ORPHAN 38;5;167
-MISSING 38;5;167
-```
+O link mantém as cores do `dircolors` sincronizadas com o arquivo versionado em `zsh/.config/dircolors/nord`.
 
 No `~/.zshrc`, carregue o arquivo de cores antes das configurações de completion e o Starship depois delas:
 
