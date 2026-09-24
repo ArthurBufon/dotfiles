@@ -70,7 +70,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/bin:$PATH"
 
 # >>> Codex installer >>>
-export PATH="/home/arthur/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # <<< Codex installer <<<
 
 if command -v zoxide >/dev/null; then
