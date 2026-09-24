@@ -58,15 +58,6 @@ opacity=0.92000000000000004
 palette='Catppuccin Mocha'
 use-custom-command=true
 
-[Profiles/c260dc09629ad4f7eee2122a6a7cf85b]
-custom-command="zsh -lc 'cd ~/projects/4ucertificacoes && exec zsh -l'"
-label='LOCAL - 4U'
-login-shell=false
-opacity=0.92000000000000004
-palette='Catppuccin Mocha'
-use-custom-command=true
-use-proxy=false
-
 [Profiles/cb025f1326fadcfae445206c6a526650]
 label='arthur'
 opacity=0.92000000000000004
