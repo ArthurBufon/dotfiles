@@ -118,7 +118,7 @@ Este rice possui uma configuração Starship própria em `starship.toml`. A part
 
 ```bash
 mkdir -p ~/.config/dircolors
-cp starship.toml ~/.config/starship.toml
+ln -sfn ~/dotfiles/debian/rice/nord/starship.toml ~/.config/starship.toml
 ln -sfn ~/dotfiles/zsh/.config/dircolors/nord ~/.config/dircolors/nord
 ```
 
