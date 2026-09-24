@@ -41,6 +41,18 @@ dotfiles/
 - Zsh autosuggestions and syntax highlighting
 - NVM bootstrap and a handful of workflow aliases
 
+### Fastfetch artwork
+
+The [Fastfetch config](fastfetch/config.jsonc) loads `rei-ayanami-1.txt` by default. Install the config and its artwork together:
+
+```sh
+mkdir -p "$HOME/.config/fastfetch"
+ln -s "$HOME/dotfiles/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
+ln -s "$HOME/dotfiles/fastfetch/anime" "$HOME/.config/fastfetch/anime"
+```
+
+To use another design, change `logo.source` in `fastfetch/config.jsonc` to one of the files under [fastfetch/anime](fastfetch/anime/).
+
 ### XFCE shortcuts
 
 The [XFCE shortcut backup](xfce/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml) includes `Super+B` to open Chrome and `Super+Q` to close the current tab. The [close-tab script](xfce/.local/bin/fechar-aba) sends `Ctrl+Shift+Q` to Kitty and `Ctrl+W` to other applications on X11.
