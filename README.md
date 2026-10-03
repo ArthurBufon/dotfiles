@@ -2,56 +2,56 @@
 
 # dotfiles ⌁
 
-**a small, opinionated corner of my terminal**
+**um pequeno canto do meu terminal, do meu jeito**
 
-`zsh` · `starship` · `nvm` · fewer repeated keystrokes
+`zsh` · `starship` · `nvm` · menos teclas repetidas
 
 <br>
 
-<sub>🪩 tuned for daily work &nbsp;·&nbsp; 🐚 kept deliberately small</sub>
+<sub>🪩 ajustado para o trabalho diário &nbsp;·&nbsp; 🐚 propositalmente enxuto</sub>
 
 </div>
 
-![Desktop screenshot with the dotfiles configuration](screenshots/desktop.png)
+![Captura do desktop com a configuração dos dotfiles](screenshots/desktop.png)
 
 ---
 
 ```text
 dotfiles/
-├── debian/       Debian and XFCE setup guides
-├── fastfetch/    system summary config and anime artwork
-├── fonts/        JetBrains Mono font files
-├── git/          global Git config
-├── gnome/        GNOME extension settings
-├── mpv/          media player config and shortcuts
-├── ptyxis/       terminal profiles
-├── redshift/     screen temperature config and autostart
-├── screenshots/  desktop previews
-├── xfce/         keyboard shortcuts and helper scripts
-└── zsh/          shell config and Nord dircolors
+├── debian/       guias de configuração do Debian e XFCE
+├── fastfetch/    configuração de resumo do sistema e artes de anime
+├── fonts/        arquivos das fontes JetBrains Mono
+├── git/          configuração global do Git
+├── gnome/        configurações de extensões do GNOME
+├── mpv/          configuração e atalhos do player de mídia
+├── ptyxis/       perfis do terminal
+├── redshift/     temperatura de cor e inicialização automática
+├── screenshots/  prévias do desktop
+├── xfce/         atalhos de teclado e scripts auxiliares
+└── zsh/          configuração do shell e dircolors Nord
 ```
 
-### What lives here
+### O que há aqui
 
-- shared, deduplicated shell history
-- [Nord rice for Debian/XFCE](debian/rice/nord/README.md), including a Rofi launcher
-- fuzzy and case-insensitive completion
-- [Starship](https://starship.rs/) prompt initialization
-- Zsh autosuggestions and syntax highlighting
-- NVM bootstrap and a handful of workflow aliases
+- histórico compartilhado do shell, sem duplicatas
+- [rice Nord para Debian/XFCE](debian/rice/nord/README.md), incluindo um launcher Rofi
+- completion aproximado e sem distinção entre maiúsculas e minúsculas
+- inicialização do prompt [Starship](https://starship.rs/)
+- autosuggestions e syntax highlighting do Zsh
+- inicialização do NVM e alguns aliases de trabalho
 
-### Component guides
+### Guias por componente
 
-| Component | What it covers |
+| Componente | O que cobre |
 | --- | --- |
-| [Nord rice](debian/rice/nord/TUTORIAL.md) | Debian 13, XFCE and X11 desktop setup |
-| [Blueman](debian/blueman/guia.md) | Bluetooth manager installation |
-| [MPV](mpv/guia.md) | Player configuration and shortcuts |
-| [Redshift](redshift/guia.md) | Screen-temperature configuration and autostart |
+| [Rice Nord](debian/rice/nord/TUTORIAL.md) | configuração de desktop no Debian 13, XFCE e X11 |
+| [Blueman](debian/blueman/guia.md) | instalação do gerenciador Bluetooth |
+| [MPV](mpv/guia.md) | configuração e atalhos do player |
+| [Redshift](redshift/guia.md) | temperatura de cor e inicialização automática |
 
-### Fastfetch artwork
+### Arte do Fastfetch
 
-The [Fastfetch config](fastfetch/config.jsonc) loads `rei-ayanami-1.txt` by default. Install the config and its artwork together:
+A [configuração do Fastfetch](fastfetch/config.jsonc) carrega `rei-ayanami-1.txt` por padrão. Instale a configuração e a arte juntas:
 
 ```sh
 mkdir -p "$HOME/.config/fastfetch"
@@ -59,13 +59,13 @@ ln -s "$HOME/dotfiles/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.js
 ln -s "$HOME/dotfiles/fastfetch/anime" "$HOME/.config/fastfetch/anime"
 ```
 
-To use another design, change `logo.source` in `fastfetch/config.jsonc` to one of the files under [fastfetch/anime](fastfetch/anime/).
+Para usar outro visual, altere `logo.source` em `fastfetch/config.jsonc` para um dos arquivos em [fastfetch/anime](fastfetch/anime/).
 
-### XFCE shortcuts
+### Atalhos do XFCE
 
-The [XFCE shortcut backup](xfce/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml) includes `Super+B` to open Chrome and `Super+Q` to close the current tab. The [close-tab script](xfce/.local/bin/fechar-aba) sends `Ctrl+Shift+Q` to Kitty and `Ctrl+W` to other applications on X11.
+O [backup de atalhos do XFCE](xfce/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml) inclui `Super+B` para abrir o Chrome e `Super+Q` para fechar a aba atual. O [script de fechar aba](xfce/.local/bin/fechar-aba) envia `Ctrl+Shift+Q` ao Kitty e `Ctrl+W` aos outros aplicativos no X11.
 
-To restore these two shortcuts from the repository root in an XFCE session:
+Para restaurar esses dois atalhos a partir da raiz do repositório, em uma sessão XFCE:
 
 ```sh
 install -Dm755 xfce/.local/bin/fechar-aba ~/.local/bin/fechar-aba
@@ -74,7 +74,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>q' -n -t st
 xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>c' -r 2>/dev/null || true
 ```
 
-### Put it to work
+### Coloque para funcionar
 
 ```sh
 git clone https://github.com/ArthurBufon/dotfiles.git ~/dotfiles
@@ -85,10 +85,10 @@ exec zsh
 ```
 
 > [!NOTE]
-> The config contains aliases tied to my local project paths. Read it before linking and make those paths your own.
+> A configuração contém aliases ligados aos caminhos locais dos meus projetos. Leia o arquivo antes de criar o link e ajuste esses caminhos para o seu ambiente.
 
 <details>
-<summary><strong>Things the shell expects</strong></summary>
+<summary><strong>O que o shell espera encontrar</strong></summary>
 
 <br>
 
@@ -98,12 +98,12 @@ exec zsh
 - [zoxide](https://github.com/ajeetdsouza/zoxide) (`sudo apt install zoxide` no Debian)
 - [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)
 - [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting)
-- NVM, if Node version management is needed
+- NVM, caso o gerenciamento de versões do Node seja necessário
 
 </details>
 
 ---
 
 <div align="center">
-  <sub>Personal machinery. Borrow what fits; leave the rest. ◌</sub>
+  <sub>Engrenagens pessoais. Pegue o que servir; deixe o resto. ◌</sub>
 </div>
