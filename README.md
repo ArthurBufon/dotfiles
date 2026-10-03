@@ -27,7 +27,6 @@ dotfiles/
 ├── ptyxis/       terminal profiles
 ├── redshift/     screen temperature config and autostart
 ├── screenshots/  desktop previews
-├── starship/     standalone prompt config
 ├── xfce/         keyboard shortcuts and helper scripts
 └── zsh/          shell config and Nord dircolors
 ```
