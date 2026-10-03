@@ -40,6 +40,15 @@ dotfiles/
 - Zsh autosuggestions and syntax highlighting
 - NVM bootstrap and a handful of workflow aliases
 
+### Component guides
+
+| Component | What it covers |
+| --- | --- |
+| [Nord rice](debian/rice/nord/TUTORIAL.md) | Debian 13, XFCE and X11 desktop setup |
+| [Blueman](debian/blueman/guia.md) | Bluetooth manager installation |
+| [MPV](mpv/guia.md) | Player configuration and shortcuts |
+| [Redshift](redshift/guia.md) | Screen-temperature configuration and autostart |
+
 ### Fastfetch artwork
 
 The [Fastfetch config](fastfetch/config.jsonc) loads `rei-ayanami-1.txt` by default. Install the config and its artwork together:
