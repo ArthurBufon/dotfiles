@@ -79,6 +79,8 @@ xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>c' -r 2>/de
 ```sh
 git clone https://github.com/ArthurBufon/dotfiles.git ~/dotfiles
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+mkdir -p "$HOME/.config/dircolors"
+ln -s "$HOME/dotfiles/zsh/.config/dircolors/nord" "$HOME/.config/dircolors/nord"
 exec zsh
 ```
 
