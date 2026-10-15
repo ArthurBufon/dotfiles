@@ -220,6 +220,41 @@ xfconf-query -c xfce4-keyboard-shortcuts \
 
 O primeiro comando abre o launcher; `Esc` o fecha. O segundo deve exibir `rofi -show drun`.
 
-## 9. Finalize
+## 9. Evite bloqueio e desligamento da tela
+
+Na sessão XFCE em X11, desative os tempos de DPMS ligados à tomada e remova o
+comando de bloqueio da sessão:
+
+```bash
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -n -t int -s 0
+xfconf-query -c xfce4-session -p /general/LockCommand -n -t string -s ''
+```
+
+Desative a inicialização automática do Light Locker e encerre o processo que
+possa ter sido iniciado antes dessa alteração:
+
+```bash
+mkdir -p ~/.config/autostart
+printf '[Desktop Entry]\nHidden=true\n' > ~/.config/autostart/light-locker.desktop
+pkill light-locker
+```
+
+Por fim, desative o protetor de tela e o DPMS do X11 na sessão atual:
+
+```bash
+xset s off
+xset -dpms
+```
+
+Esses comandos do `xset` valem somente para a sessão gráfica atual; repita-os
+após cada login se não os adicionar aos aplicativos de inicialização do XFCE.
+
+Confira o resultado com `xfconf-query -c xfce4-power-manager -lv`,
+`xfconf-query -c xfce4-session -lv` e `xset q`. Em `xset q`, o campo
+`timeout` do protetor de tela deve ser `0` e o DPMS deve aparecer como
+`Disabled`; valores de DPMS em `0` por si só não desativam o protetor de tela.
+
+## 10. Finalize
 
 Escolha um wallpaper escuro com tons Nord e saia/entre na sessão. Verifique o compositor com `pgrep -a picom`; deve haver apenas um processo Picom.
